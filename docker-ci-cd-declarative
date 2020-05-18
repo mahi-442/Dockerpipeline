@@ -11,7 +11,7 @@ pipeline{
         }
         stage('Docker Build'){
             steps{
-                sh "docker build . -t mahi-442/Dockerpipeline:${dockerTag()}" 
+                sh "docker build . -t mahi-442/dockerpipeline:${dockerTag()}" 
             }
         }
         stage('DockerHub Push Image'){
@@ -20,7 +20,7 @@ pipeline{
                     sh "docker login -u mahi-442 -p ${dockerPwd}"
                 }
                 
-                sh "docker push mahi-442/Dockerpipeline:${dockerTag()} ."
+                sh "docker push mahi-442/dockerpipeline:${dockerTag()} ."
             }
         }
     }
